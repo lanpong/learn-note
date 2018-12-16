@@ -85,7 +85,7 @@ for(var i=0; i<numbers.length; i++) {
 numbers.shift();
 ```
 
-**由于是删除元素，上面的几种只是删除头部的元素，所以并不需要参数。**
+> 由于是删除元素，上面的几种只是删除头部的元素，所以并不需要参数。
 
 # Adding and removing from a specific position
 
