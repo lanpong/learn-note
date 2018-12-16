@@ -1,4 +1,4 @@
-## Creating and initializing arrays
+# Creating and initializing arrays
 
 ```js
 var a = new Array();
@@ -6,7 +6,7 @@ var a = new Array('a', 'b');
 var a = [];
 ```
 
-###  Accessing elements and iterating an array
+##  Accessing elements and iterating an array
 
 简单的来找到1-20里符合斐波那契数列的数值
 
@@ -24,7 +24,7 @@ for(var i=1; i<fib.length; i++) {
 }
 ```
 
-## Adding elements
+# Adding elements
 
 ```js
 var numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
@@ -32,7 +32,7 @@ var numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 > 10
 ```
 
-### Using the push method
+## Using the push method
 
 `push` 可以在尾部添加新的元素，比如
 ```js
@@ -42,6 +42,8 @@ numbers.push(12, 13); //这里可以一次接受多个参数
 // [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 12, 13]
 ```
 
-### Inserting an element in the first position
+## Inserting an element in the first position
 
-#### Using the unshift method
+### Using the unshift method
+
+# Removing elements
