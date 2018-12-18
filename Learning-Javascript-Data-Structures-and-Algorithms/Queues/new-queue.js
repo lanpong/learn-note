@@ -1,3 +1,4 @@
+/*
 class Queue{
     constructor(...items){
         // initialize the items in queue
@@ -33,3 +34,69 @@ class Queue{
         return this._items.length === 0;
     }
 }
+*/
+
+/* ---------------------------------------------------------------- */
+// 就队列来说，类似现实中的排队，需要与栈进行区分。FIFO(firsr in first out)先进先出
+
+function Queue() {
+    let items = [];
+    // 入队
+    this.enqueue = function(element) {
+        items.push(element);
+    }
+    // 出队
+    this.dequeue = function() {
+        return items.shift();
+    }
+    // 队头
+    this.front = function() {
+        return items[0];
+    }
+    // 判断是否为空队
+    this.isEmpty = function() {
+        return items.length == 0;
+    }
+    // 队长
+    this.size = function() {
+        return items.length;
+    }
+    // 输出队列的全部元素
+    this.print = function() {
+        console.log(items.toString());
+    }
+}
+
+let queue = new Queue();
+console.log(queue.isEmpty()); // true
+
+queue.enqueue("J");
+queue.enqueue("Q");
+queue.enqueue("K");
+queue.print();
+console.log(queue.size());
+console.log(queue.isEmpty());
+queue.dequeue();
+queue.dequeue();
+queue.print();
+
+/* ------------ES6 syntax------------- */
+let Queue2 = (function () {
+    const items = new WeakMap();
+
+    class Queue2 {
+        constructor () {
+            items.set(this, []);
+        }
+        enqueue(element) {
+            let q = items.get(this);
+            q.push(element);
+        }
+        dequeue() {
+            let q = item.get(this);
+            let r = q.shift();
+            return r;
+        }
+
+    }
+}) ();
