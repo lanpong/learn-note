@@ -100,3 +100,33 @@ let Queue2 = (function () {
 
     }
 }) ();
+
+/* ---- priority queue ---- */
+// 带有优先级的队列，在每一个入队的元素加上权重
+function PriorityQueue() {
+    let items = [];
+    function QueueElement (element, priority) {
+        this.element = element;
+        this.priority = priority;
+    }
+
+    this.enqueue = function(element, priority) {
+        let queueElement = new QueueElement(element, priority);
+
+        let added = false;
+        for (let i=0; i<items; i++) {
+            items.splice(i, 0, queueElement);
+            added = true;
+            break;
+        }
+        if (!added) {
+            items.push(queueElement);
+        }
+    };
+
+    this.print = function() {
+        for (let i=0; i<items.length; i++) {
+            console.log(`${items[i].element} - ${items[i].priority}`);
+        }
+    };
+}
