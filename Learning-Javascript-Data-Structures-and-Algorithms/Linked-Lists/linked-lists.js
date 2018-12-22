@@ -14,8 +14,7 @@ function LinkedList() {
 
         if (head === null) {
             head = node;
-        }
-        else {
+        } else {
             current = head;
 
             while (current.next) {
@@ -41,8 +40,7 @@ function LinkedList() {
                 node.next = current;
                 head = node;
 
-            }
-            else {
+            } else {
                 while (index++ < position) {
                     previous = current;
                     current = current.next;
@@ -53,8 +51,7 @@ function LinkedList() {
 
             length++;
             return true;
-        }
-        else {
+        } else {
             return false;
         }
     };
@@ -67,8 +64,7 @@ function LinkedList() {
 
             if (position === 0) {
                 head = current.next;
-            }
-            else {
+            } else {
                 while (index++ < position) {
                     previous = current;
                     current = current.next;
@@ -80,8 +76,7 @@ function LinkedList() {
             length--;
 
             return current.element;
-        }
-        else {
+        } else {
             return null;
         }
     };

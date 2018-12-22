@@ -18,8 +18,7 @@ class Stack {
         //pull out the topmost item (last item) from stack
         if (count===0) {
             return this._items.pop();
-        }
-        else {
+        } else {
             return this._items.splice(-count, count);
         }
     }
