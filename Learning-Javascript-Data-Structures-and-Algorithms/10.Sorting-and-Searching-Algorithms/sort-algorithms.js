@@ -190,4 +190,37 @@ function ArrayList() {
             heapify(array, heapSize, largest);
         }
     };
+
+    // Searching algorithms
+    //线性搜索，最佳 O(1)，最坏 O(n)，平均 O(n)
+    this.squentialSearch = function(item) {
+        for (var i=0; i<array.length; i++) {
+            if (item === array[i]) {
+                return i;
+            }
+        }
+    };
+
+    // 二分搜索，时间复杂度 O(logn)，空间复杂度 O(1)
+    this.binarySearch = function(item) {
+        this.quickSort();
+
+        var low = 0,
+        high = array.length - 1,
+        mid,
+        element;
+
+        while (low <= high) {
+            mid = Math.floor(low + high);
+            element = array[mid];
+            if (element < item) {
+                low = mid + 1;
+            } else if (element > item) {
+                high = mid - 1;
+            } else {
+                return mid;
+            }
+        }
+        return -1;
+    };
 }
