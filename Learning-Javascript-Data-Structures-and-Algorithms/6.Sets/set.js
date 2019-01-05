@@ -1,11 +1,11 @@
 function Set() {
     let items = {};
 
-    /*
-    this.has = function(value) {
-        return value in items;
-    }
-    */
+    /**
+     * this.has = function(value) {
+     *     return value in items;
+     * }
+     */
     this.has = function(value) {
         return items.hasOwnProperty(value);
     };
@@ -62,6 +62,7 @@ function Set() {
         return values;
     };
 
+    // 并集
     this.union = function(otherSet) {
         let unionSet = new Set();
 
@@ -78,6 +79,7 @@ function Set() {
         return unionSet;
     };
 
+    // 交集
     this.intersection = function(otherSet) {
         let intersectionSet = new Set();
 
@@ -90,7 +92,10 @@ function Set() {
 
         return intersectionSet;
     };
+    // ES6
+    // intersectionAb = new Set([x for (x of setA) if (setB.has(x))]);
 
+    // 差集
     this.difference = function(otherSet) {
         let differenceSet = new Set();
 
@@ -103,7 +108,10 @@ function Set() {
 
         return differenceSet;
     };
+    // ES6
+    // differenceAB = new Set([x for (x of SetA) if (!setB.has(x))]);
 
+    // 子集
     this.subset = function(otherSet) {
 
         if (this.size() > otherSet.size()) {
@@ -119,6 +127,4 @@ function Set() {
             return true;
         }
     };
-
-    
 }
