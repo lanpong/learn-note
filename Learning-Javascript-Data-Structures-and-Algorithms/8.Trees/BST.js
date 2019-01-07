@@ -37,6 +37,7 @@ function BinarySearchTree() {
     };
 
     // 中序遍历
+    // 是一种以上行顺序访问BST所有节点的遍历方式，也就是从最小到最大的访问顺序访问所有节点
     this.inOrderTraverse = function(callback) {
         inOrderTraverseNode(root, callback);
     };
