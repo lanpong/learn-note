@@ -8,6 +8,7 @@ function BinarySearchTree() {
 
     var root = null;
 
+    // 向树中插入一个新的键
     this.insert = function(key) {
 
         var newNode = new Node(key);
@@ -35,7 +36,7 @@ function BinarySearchTree() {
         }
     };
 
-    // inorder traversal
+    // 中序遍历
     this.inOrderTraverse = function(callback) {
         inOrderTraverseNode(root, callback);
     };
@@ -48,7 +49,7 @@ function BinarySearchTree() {
         }
     };
 
-    // preorder traversal
+    // 先序遍历
     this.preOrderTraverse = function(callback) {
         preOrderTraverseNode(root, callback);
     };
@@ -61,7 +62,7 @@ function BinarySearchTree() {
         }
     };
 
-    // post order traversal
+    // 后序遍历
     this.postOrderTraverse = function(callback) {
         postOrderTraverseNode(root, callback);
     };
@@ -74,7 +75,7 @@ function BinarySearchTree() {
         }
     };
 
-    // find the minimum key of the tree
+    // 返回树中最小的值/键
     this.min = function() {
         return minNode(root);
     };
@@ -90,7 +91,7 @@ function BinarySearchTree() {
         return null;
     };
 
-    //find the max key of the tree
+    // 返回树中最大的值/键
     this.max = function() {
         return maxNode(root);
     };
@@ -106,7 +107,7 @@ function BinarySearchTree() {
         return null;
     };
 
-    // search for speacific value
+    // 在树中查找一个键，如果节点存在，则返回 true ；如果不存在，则返回 false
     this.search = function(key) {
         return searchNode(root, key);
     };
@@ -124,7 +125,7 @@ function BinarySearchTree() {
         }
     };
 
-    // remove a node
+    // 移除某一个键
     this.remove = function(key) {
         root = removeNode(root, key)
     }
