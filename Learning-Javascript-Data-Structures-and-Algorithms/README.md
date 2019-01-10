@@ -1,1 +1,1 @@
-数据结构的 JavaScript 描述。
+[学习JavaScript数据结构与算法（第2版）。](https://book.douban.com/subject/27129352/)
