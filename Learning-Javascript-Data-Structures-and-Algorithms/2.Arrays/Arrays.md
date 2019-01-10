@@ -119,7 +119,40 @@ numbers.shift();
 
 ## Join multiple arrays
 
+```js
+var zero = 0;
+var positiveNumbers = [1,2,3];
+var negativeNumbers = [-3,-2,-1];
+var numbers = negativeNumbers.concat(zero, positiveNumbers);
+// [ -3, -2, -1, 0, 1, 2, 3 ]
+```
+
 ## Iterator functions
+
+迭代器
+
+```js
+var numbers = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15];
+```
+
+`every` 方法会迭代数组的每个元素，直到函数返回 `false`，也就是函数得到 `false` 会停止迭代
+
+`some` 与 `every` 类似，直到函数返回 `true`，也就是函数得到 `true` 会停止迭代
+
+`forEach`，这里是迭代整个数组，`numbers.forEach()`
+
+### map,filter 和 reduce
+
+`map` let myMap = numbers.map(isEven)
+
+数组 myMap 里的值是： [false, true, false, true, false, true, false, true,
+false, true, false, true, false, true, false]
+
+还有一个 filter 方法。它返回的新数组由使函数返回 true 的元素组成：
+var evenNumbers = numbers.filter(isEven);
+在我们的例子里， evenNumbers 数组中的元素都是偶数： [2, 4, 6, 8, 10, 12, 14] 。
+
+`reduce`
 
 ## ECMAScript 6 and new Array functionalities
 
