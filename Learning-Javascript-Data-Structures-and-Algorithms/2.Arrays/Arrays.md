@@ -89,13 +89,33 @@ numbers.shift();
 
 # Adding and removing from a specific position
 
+这里可以使用 `splice(parms, parms)` 返回的是修改过的数组
+
 # Two-adimensional and multidimensional arrays
+
 
 ## Iterating the elements of two-dimensional arrays
 
 ## Multi-dimensional arrays
 
 # References for JavaScript array methods
+
+| methods     | desc |
+|:----------- |:-----|
+| concat      |      |
+| every       |      |
+| filter      |      |
+| forEach     |      |
+| join        |      |
+| indexOf     |      |
+| lastIndexOf |      |
+| map         |      |
+| reverse     |      |
+| slice       |      |
+| some        |      |
+| sort        |      |
+| toString    |      |
+| valueOf     |      |
 
 ## Join multiple arrays
 
