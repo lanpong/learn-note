@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Image Gallery</title>
+    <style>
+        body {
+            font-family: "Helvetica", "Arial", serif;
+            color: #333;
+            background-color: #ccc;
+            margin: 1em 10%;
+        }
+        h1 {
+            color: #333;
+            background-color: transparent;
+        }
+        a {
+            color: #c60;
+            background-color: transparent;
+            font-weight: bold;
+            text-decoration: none;
+        }
+        ul {
+            padding: 0;
+        }
+        li {
+            float: left;
+            padding: 1em;
+            list-style: none;
+        }
+        img {
+            display: block;
+            clear: both;
+        }
+    </style>
+</head>
+<body>
+    <h1>Snapshots</h1>
+    <ul id="imagegallery">
+        <li><a href="images/fireworks.jpg" title="A fireworks display">Fireworks</a></li>
+        <li><a href="images/coffee.jpg" title="A cup of black coffee">Coffee</a></li>
+        <li><a href="images/rose.jpg" title="A red, red rose">Rose</a></li>
+        <li><a href="images/bigben.jpg" title="The famous clock">Big ben</a></li>
+    </ul>
+    <img id="placeholder" src="images/placeholder.gif" alt="my image gallery">
+    <p id="description">Choose an image.</p>
+    <script>
+        function showPic(whichpic) {
+            if (!document.getElementById("placeholder")) return true;
+            var source = whichpic.getAttribute("href");
+            var placeholder = document.getElementById("placeholder");
+            placeholder.setAttribute("src",source);
+            if (!document.getElementById("description")) return false;
+            if (whichpic.getAttribute("title")) {
+                var text = whichpic.getAttribute("title");
+            } else {
+                var text = "";
+            }
+            var description = document.getElementById("description");
+            if (description.firstChild.nodeType == 3) {
+                description.firstChild.nodeValue = text;
+            }
+            return false;
+        }
+
+        function prepareGallery() {
+            if (!document.getElementsByTagName) return false;
+            if (!document.getElementById) return false;
+            if (!document.getElementById("imagegallery")) return false;
+            var gallery = document.getElementById("imagegallery");
+            var links = gallery.getElementsByTagName("a");
+            for ( var i=0; i < links.length; i++) {
+                links[i].onclick = function() {
+                    return showPic(this);
+                }
+                links[i].onkeypress = links[i].onclick;
+            }
+          }
+
+        function addLoadEvent(func) {
+            var oldonload = window.onload;
+            if (typeof window.onload != "function") {
+                window.onload = func;
+            } else {
+                window.onload = function() {
+                    oldonload();
+                    func();
+                }
+            }
+        }
+
+        addLoadEvent(prepareGallery);
+    </script>
+</body>
+</html>
