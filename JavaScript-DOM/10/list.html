@@ -41,7 +41,7 @@
             }
             var xpos = parseInt(elem.style.left);
             var ypos = parseInt(elem.style.top);
-            if (xpos == final_x && ypos == final_y) {
+            if (xpos === final_x && ypos === final_y) {
                 return true;
             }
             if (xpos < final_x) {
@@ -68,7 +68,7 @@
 
         function insertAfter(newElement,targetElement) {
             var parent = targetElement.parentNode;
-            if (parent.lastChild == targetElement) {
+            if (parent.lastChild === targetElement) {
                 parent.appendChild(newElement);
             } else {
                 parent.insertBefore(newElement,targetElement.nextSibling);
@@ -78,15 +78,19 @@
         function prepareSlideshow() {
             if (!document.getElementById || !document.getElementsByTagName) return false;
             if (!document.getElementById("linklist")) return false;
+
             var slideshow = document.createElement("div");
             slideshow.setAttribute("id", "slideshow");
+
             var preview = document.createElement("img");
             preview.setAttribute("src","topics.gif");
             preview.setAttribute("alt", "building blocks of web design.");
             preview.setAttribute("id", "preview");
             slideshow.appendChild(preview);
+
             var list = document.getElementById("linklist");
             insertAfter(slideshow, list);
+
             var links = list.getElementsByTagName("a");
             links[0].onmouseover = function() {
                 moveElement("preview", -100, 0, 10);

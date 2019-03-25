@@ -1,6 +1,6 @@
 function addLoadEvent(func) {
     var oldonload = window.onload;
-    if (typeof window.onload != 'function') {
+    if (typeof window.onload !== 'function') {
         window.onload = func;
     } else {
         window.onload = function() {
@@ -12,7 +12,7 @@ function addLoadEvent(func) {
 
 function insertAfter(newElement, targetElement) {
     var parent = targetElement.parentNode;
-    if (parent.lastChild == targetElement) {
+    if (parent.lastChild === targetElement) {
         parent.appendChild(newElement);
     } else {
         parent.insertBefore(newElement, targetElement.nextSibling);
@@ -33,14 +33,15 @@ function addClass(element, value) {
 function highlightPage() {
     if (!document.getElementsByTagName || !document.getElementById) return false;
     var headers = document.getElementsByTagName("header");
-    if (headers.length == 0) return false;
+    if (headers.length === 0) return false;
     var navs = headers[0].getElementsByTagName("nav");
-    if (navs.length == 0) return false;
+    if (navs.length === 0) return false;
+
     var links = navs[0].getElementsByTagName("a");
     var linkurl;
     for (var i=0; i<links.length; i++) {
         linkurl = links[i].getAttribute("href");
-        if (window.location.href.indexOf(linkurl) != -1) {
+        if (window.location.href.indexOf(linkurl) !== -1) {
             links[i].className = "here";
             var linktext = links[i].lastChild.nodeValue.toLowerCase();
             document.body.setAttribute("id", linktext);
@@ -63,7 +64,7 @@ function moveElement(elementID, final_x, final_y, interval) {
     }
     var xpos = parseInt(elem.style.left);
     var ypos = parseInt(elem.style.top);
-    if (xpos == final_x && ypos == final_y) {
+    if (xpos === final_x && ypos === final_y) {
         return true;
     }
     if (xpos < final_x) {
@@ -114,19 +115,19 @@ function prepareSlideshow() {
     for (var i=0; i<links.length; i++) {
         links[i].onmouseover = function() {
             destination = this.getAttribute("href");
-            if (destination.indexOf("index.html") != -1) {
+            if (destination.indexOf("index.html") !== -1) {
                 moveElement("preview", 0, 0, 5);
             }
-            if (destination.indexOf("about.html") != -1) {
+            if (destination.indexOf("about.html") !== -1) {
                 moveElement("preview", -150, 0, 5);
             }
-            if (destination.indexOf("photos.html") != -1) {
+            if (destination.indexOf("photos.html") !== -1) {
                 moveElement("preview", -300, 0, 5);
             }
-            if (destination.indexOf("live.html") != -1) {
+            if (destination.indexOf("live.html") !== -1) {
                 moveElement("preview", -450, 0, 5);
             }
-            if (destination.indexOf("contact.html") != -1) {
+            if (destination.indexOf("contact.html") !== -1) {
                 moveElement("preview", -600, 0, 5);
             }
         }
@@ -136,7 +137,7 @@ function prepareSlideshow() {
 function showSection(id) {
     var sections = document.getElementsByTagName("section");
     for (var i=0; i<sections.length; i++) {
-        if (sections[i].getAttribute("id") != id) {
+        if (sections[i].getAttribute("id") !== id) {
             sections[i].style.display = "none";
         } else {
             sections[i].style.display = "block";
@@ -148,10 +149,10 @@ function prepareInternalnav() {
     if (!document.getElementsByTagName || !document.getElementById) return false;
 
     var articles = document.getElementsByTagName("article");
-    if (articles.length == 0) return false;
+    if (articles.length === 0) return false;
 
     var navs = articles[0].getElementsByTagName("nav");
-    if (navs.length == 0) return false;
+    if (navs.length === 0) return false;
 
     var nav = navs[0];
     var links = nav.getElementsByTagName("a");
@@ -179,7 +180,7 @@ function showPic(whichpic) {
         var text = "";
     }
     var description = document.getElementById("description");
-    if (description.firstChild.nodeType == 3) {
+    if (description.firstChild.nodeType === 3) {
         description.firstChild.nodeValue = text;
     }
     return false;
@@ -190,6 +191,7 @@ function preparePlaceholder() {
     if (!document.createTextNode) return false;
     if (!document.getElementById) return false;
     if (!document.getElementById("imagegallery")) return false;
+
     var placeholder = document.createElement("img");
     placeholder.setAttribute("id","placeholder");
     placeholder.setAttribute("src","images/placeholder.gif");
@@ -224,7 +226,7 @@ function stripeTables() {
       var odd = false;
       var rows = tables[i].getElementsByTagName("tr");
       for (var j=0; j<rows.length; j++) {
-        if (odd == true) {
+        if (odd === true) {
           addClass(rows[j],"odd");
           odd = false;
         } else {
@@ -303,12 +305,12 @@ function resetFields(whichform) {
       if (element.type == "submit") continue;
       if (!element.getAttribute('placeholder')) continue;
       element.onfocus = function() {
-      if (this.value == this.getAttribute('placeholder')) {
+      if (this.value === this.getAttribute('placeholder')) {
         this.value = "";
        }
       }
       element.onblur = function() {
-        if (this.value == "") {
+        if (this.value === "") {
           this.value = this.getAttribute('placeholder');
         }
       }
@@ -319,13 +321,13 @@ function resetFields(whichform) {
 function validateForm(whichform) {
     for (var i=0; i<whichform.elements.length; i++) {
         var element = whichform.elements[i];
-        if (element.getAttribute("required") == 'required') {
+        if (element.getAttribute("required") === 'required') {
             if (!isFilled(element)) {
                 alert("Please fill in the "+element.name+" field.");
                 return false;
             }
         }
-        if (element.getAttribute("type") == 'email') {
+        if (element.getAttribute("type") === 'email') {
             if (!isEmail(element)) {
                 alert("The "+element.name+" field must be a valid email address.");
                 return false;
@@ -360,7 +362,7 @@ function prepareForms() {
 // Ajax
 
 function getHTTPObject() {
-    if (typeof XMLHttpRequest == "undefined")
+    if (typeof XMLHttpRequest === "undefined")
         XMLHttpRequest = function () {
             try { return new ActiveXObject("Msxml2.XMLHTTP.6.0"); }
                 catch (e) {}
@@ -407,8 +409,8 @@ function submitFormWithAjax( whichform, thetarget ) {
     request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
   
     request.onreadystatechange = function () {
-        if (request.readyState == 4) {
-            if (request.status == 200 || request.status == 0) {
+        if (request.readyState === 4) {
+            if (request.status === 200 || request.status === 0) {
                 var matches = request.responseText.match(/<article>([\s\S]+)<\/article>/);
                 if (matches.length > 0) {
                     thetarget.innerHTML = matches[1];
