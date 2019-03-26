@@ -2,7 +2,7 @@ class Stack {
     constructor(...items) {
         this._items = [];
   
-        if (items.length>0) {
+        if (items.length > 0) {
             items.forEach(item => this._items.push(item));
         }
   
@@ -14,9 +14,9 @@ class Stack {
         return this._items;
     }
 
-    pop(count=0) {
+    pop(count = 0) {
         //pull out the topmost item (last item) from stack
-        if (count===0) {
+        if (count === 0) {
             return this._items.pop();
         } else {
             return this._items.splice(-count, count);
@@ -43,6 +43,19 @@ class Stack {
     }
 }
 
+/**
+ * 进制转化，这里需要构造一个 `Stack`
+ * 
+ * @param {number} decNumber 需要进行转化的数字
+ * @param {number} base 进制
+ * @returns {number} 转化后的
+ * @example
+ * baseConverter(1024, 2)
+ * // => 10000000000
+ * 
+ * baseConverter(1024, 16)
+ * // => 400
+ */
 function baseConverter(decNumber, base) {
 
     var remStack = new Stack(),
